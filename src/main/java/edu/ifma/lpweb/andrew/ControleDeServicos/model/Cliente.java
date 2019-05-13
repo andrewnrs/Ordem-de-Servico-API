@@ -20,6 +20,14 @@ public class Cliente {
     )
     private Set<Email> emails = new LinkedHashSet<>();
 
+    @ElementCollection
+    @CollectionTable(
+            name = "Telefone",
+            joinColumns = @JoinColumn(name = "id_cliente")
+    )
+    @Column(name = "telefones")
+    private Set<Telefone> telefones = new LinkedHashSet<>();
+
     public Integer getId() {
         return id;
     }
@@ -37,6 +45,10 @@ public class Cliente {
     public Set<Email> getEmails() { return emails; }
 
     public void setEmails(Set<Email> emails) { this.emails = emails; }
+
+    public Set<Telefone> getTelefones() { return telefones; }
+
+    public void setTelefones(Set<Telefone> telefones) { this.telefones = telefones; }
 
     @Override
     public boolean equals(Object o) {

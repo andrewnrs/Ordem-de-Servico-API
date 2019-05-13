@@ -1,57 +1,27 @@
 package edu.ifma.lpweb.andrew.ControleDeServicos.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.Embeddable;
+import java.util.Objects;
 
-import javax.persistence.*;
-
-@Entity
-//@Embeddable
+@Embeddable
 public class Email {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
 
     String email;
 
-    String tipo;
+    public String getEmail() { return email; }
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "id_cliente")
-    Cliente cliente;
+    public void setEmail(String email) { this.email = email; }
 
-    public int getId() {
-        return id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Email öEmail = (Email) o;
+        return Objects.equals(email, öEmail.email);
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public int hashCode() {
+        return Objects.hash(email);
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-/*
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
- */
 }

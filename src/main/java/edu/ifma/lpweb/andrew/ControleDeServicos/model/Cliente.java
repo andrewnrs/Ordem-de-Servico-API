@@ -13,8 +13,12 @@ public class Cliente {
 
     private String nome;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Email> emails;
+    @ElementCollection
+    @CollectionTable(
+            name = "Email",
+            joinColumns = @JoinColumn(name = "id_cliente")
+    )
+    private Set<Email> emails = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -30,7 +34,20 @@ public class Cliente {
 
     public void setNome(String nome) { this.nome = nome; }
 
-    public List<Email> getEmails() { return emails; }
+    public Set<Email> getEmails() { return emails; }
 
-    public void setEmails(List<Email> emails) { this.emails = emails; }
+    public void setEmails(Set<Email> emails) { this.emails = emails; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(id, cliente.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

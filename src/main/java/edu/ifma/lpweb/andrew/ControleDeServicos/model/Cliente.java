@@ -29,8 +29,8 @@ public class Cliente {
     @Column(name = "telefone")
     private Set<String> telefones = new LinkedHashSet<>();
 
-    //@OneToMany(mappedBy = "id_cliente")
-    //private Set<Orcamento> orcamentos = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "cliente")
+    private Set<Orcamento> orcamentos = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -54,9 +54,9 @@ public class Cliente {
 
     public void setTelefones(Set<String> telefones) { this.telefones = telefones; }
 
-    //public Set<Orcamento> getOrcamentos() { return orcamentos; }
+    public Set<Orcamento> getOrcamentos() { return orcamentos; }
 
-    //public void setOrcamentos(Set<Orcamento> orcamentos) { this.orcamentos = orcamentos; }
+    public void setOrcamentos(Set<Orcamento> orcamentos) { this.orcamentos = orcamentos; }
 
     @Override
     public boolean equals(Object o) {

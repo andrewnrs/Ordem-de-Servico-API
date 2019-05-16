@@ -23,7 +23,6 @@ public class Orcamento {
     @JoinColumn(name = "id_cliente")
     Cliente cliente;
 
-    //@JsonIgnore TODO Checar este problema
     @OneToMany(mappedBy = "orcamento")
     private Set<Item> itens = new LinkedHashSet<>();
 

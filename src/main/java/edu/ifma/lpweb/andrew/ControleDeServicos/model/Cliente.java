@@ -32,6 +32,9 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private Set<Orcamento> orcamentos = new LinkedHashSet<>();
 
+    @OneToMany(mappedBy = "cliente")
+    private Set<Endereco> enderecos = new LinkedHashSet<>();
+
     public Integer getId() {
         return id;
     }
@@ -57,6 +60,11 @@ public class Cliente {
     public Set<Orcamento> getOrcamentos() { return orcamentos; }
 
     public void setOrcamentos(Set<Orcamento> orcamentos) { this.orcamentos = orcamentos; }
+
+    public Set<Endereco> getEnderecos() { return enderecos; }
+
+    public void setEnderecos(Set<Endereco> enderecos) { this.enderecos = enderecos; }
+
 
     @Override
     public boolean equals(Object o) {

@@ -15,18 +15,22 @@ public class Cliente {
 
     @ElementCollection
     @CollectionTable(
-            name = "Email",
+            name = "Emails",
             joinColumns = @JoinColumn(name = "id_cliente")
     )
-    private Set<Email> emails = new LinkedHashSet<>();
+    @Column(name = "email")
+    private Set<String> emails = new LinkedHashSet<>();
 
     @ElementCollection
     @CollectionTable(
-            name = "Telefone",
+            name = "Telefones",
             joinColumns = @JoinColumn(name = "id_cliente")
     )
-    @Column(name = "telefones")
-    private Set<Telefone> telefones = new LinkedHashSet<>();
+    @Column(name = "telefone")
+    private Set<String> telefones = new LinkedHashSet<>();
+
+    //@OneToMany(mappedBy = "id_cliente")
+    //private Set<Orcamento> orcamentos = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -42,13 +46,17 @@ public class Cliente {
 
     public void setNome(String nome) { this.nome = nome; }
 
-    public Set<Email> getEmails() { return emails; }
+    public Set<String> getEmails() { return emails; }
 
-    public void setEmails(Set<Email> emails) { this.emails = emails; }
+    public void setEmails(Set<String> emails) { this.emails = emails; }
 
-    public Set<Telefone> getTelefones() { return telefones; }
+    public Set<String> getTelefones() { return telefones; }
 
-    public void setTelefones(Set<Telefone> telefones) { this.telefones = telefones; }
+    public void setTelefones(Set<String> telefones) { this.telefones = telefones; }
+
+    //public Set<Orcamento> getOrcamentos() { return orcamentos; }
+
+    //public void setOrcamentos(Set<Orcamento> orcamentos) { this.orcamentos = orcamentos; }
 
     @Override
     public boolean equals(Object o) {

@@ -13,6 +13,16 @@ AUTO_INCREMENT = 1;
 
 CREATE INDEX `fk_Cidade_Estado1_idx` ON `Cidade` (`id_estado` ASC);
 
-INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Canoas', '1');
-INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Palmas', '2');
-INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Macapá', '3');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('São Luís', '1');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Imperatriz', '1');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('São Bento', '1');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Caxias', '1');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Teresina', '2');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Picos', '2');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Fortaleza', '3');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Sobral', '3');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Salvador', '4');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Juazeiro', '4');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Barreiras', '4');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Palmas', '5');
+INSERT INTO `ordemdeservicodb`.`cidade` (`nome`, `id_estado`) VALUES ('Natal', '6');

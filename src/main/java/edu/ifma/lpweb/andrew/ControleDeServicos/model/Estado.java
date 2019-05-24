@@ -3,6 +3,7 @@ package edu.ifma.lpweb.andrew.ControleDeServicos.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,10 +14,10 @@ public class Estado {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
+    @NotNull
     String nome;
 
-    String regiao;
-
+    @NotNull
     @JsonIgnore
     @OneToMany(mappedBy = "estado")
     private Set<Cidade> cidades = new LinkedHashSet<>();
@@ -35,14 +36,6 @@ public class Estado {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getRegiao() {
-        return regiao;
-    }
-
-    public void setRegiao(String regiao) {
-        this.regiao = regiao;
     }
 
     public Set<Cidade> getCidades() {

@@ -3,6 +3,9 @@ package edu.ifma.lpweb.andrew.ControleDeServicos.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -14,16 +17,20 @@ public class Orcamento {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
+    @NotNull
+    @Positive
     Float valor;
 
+    @PastOrPresent
     LocalDate data;
 
+    @NotNull
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     Cliente cliente;
 
-    @OneToMany(mappedBy = "orcamento")
+    @OneToMany(mappedBy = "orcamento", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Item> itens = new LinkedHashSet<>();
 
     public Integer getId() {
@@ -45,6 +52,8 @@ public class Orcamento {
     public Set<Item> getItens() { return itens; }
 
     public void setItens(Set<Item> itens) { this.itens = itens; }
+
+    public void addItem(Item item) { itens.add(item); }
 
     public Cliente getCliente() {
         return cliente;

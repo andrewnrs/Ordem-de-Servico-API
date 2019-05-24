@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.ifma.lpweb.andrew.ControleDeServicos.model.Cliente;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.Objects;
 
 @Entity
@@ -12,18 +14,26 @@ public class Endereco {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
+    @NotNull
     String cep;
+
+    @NotNull
     String logradouro;
-    String complemento;
+
+    @NotNull
     String bairro;
+
+    String complemento;
+
+    @Positive
     Integer numero;
 
+    @NotNull
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     Cliente cliente;
 
-    //@JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_cidade")
     Cidade cidade;

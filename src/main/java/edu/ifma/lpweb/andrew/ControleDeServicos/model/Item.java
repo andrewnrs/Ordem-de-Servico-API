@@ -3,6 +3,8 @@ package edu.ifma.lpweb.andrew.ControleDeServicos.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -14,15 +16,21 @@ public class Item {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
+    @NotNull
+    @Positive
     Float valor;
 
+    @NotNull
+    @Positive
     Integer quantidade;
 
+    @NotNull
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_servicoproduto")
     private ProdutoServico produtoServico;
 
+    @NotNull
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_orcamento")

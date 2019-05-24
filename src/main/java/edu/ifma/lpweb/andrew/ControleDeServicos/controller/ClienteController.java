@@ -1,12 +1,17 @@
 package edu.ifma.lpweb.andrew.ControleDeServicos.controller;
 
-import edu.ifma.lpweb.andrew.ControleDeServicos.service.ClienteServices;
-import edu.ifma.lpweb.andrew.ControleDeServicos.model.Cliente;
+import edu.ifma.lpweb.andrew.ControleDeServicos.model.*;
+import edu.ifma.lpweb.andrew.ControleDeServicos.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletResponse;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -26,9 +31,26 @@ public class ClienteController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Cliente salva(@RequestBody Cliente cliente) {
-        return clienteService.salva(cliente );
+    public ResponseEntity<?> cria(@Validated @RequestBody Cliente cliente, HttpServletResponse response) {
+
+        for(Orcamento orcamento : cliente.getOrcamentos()){
+            orcamento.setCliente(cliente);
+        }
+
+        for(Endereco endereco : cliente.getEnderecos()){
+            endereco.setCliente(cliente);
+        }
+
+        Cliente clienteSalvo = clienteService.salva(cliente );
+
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequestUri()
+                .path("/{id}")
+                .buildAndExpand(clienteSalvo.getId())
+                .toUri();
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(clienteSalvo );
     }
 
     @GetMapping("/{id}")
@@ -43,8 +65,9 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public Cliente altera(@PathVariable  Integer id, @RequestBody Cliente cliente) {
-        return  clienteService.atualiza(id, cliente );
+    public ResponseEntity<Cliente> atualiza(@PathVariable Integer id, @Validated @RequestBody Cliente cliente ) {
+        Cliente clienteManager = clienteService.atualiza(id, cliente );
+        return ResponseEntity.ok(clienteManager );
     }
 
 }

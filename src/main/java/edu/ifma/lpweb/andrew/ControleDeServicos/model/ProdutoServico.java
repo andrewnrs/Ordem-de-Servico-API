@@ -1,9 +1,8 @@
 package edu.ifma.lpweb.andrew.ControleDeServicos.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -15,12 +14,17 @@ public class ProdutoServico {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
+    @NotNull
     String nome;
 
     String desc;
 
-    Float valor;
+    @NotNull
+    @Positive
+    @Column(name = "valor_atual")
+    Float valorAtual;
 
+    // TODO Checar necessidade deste campo
     Character definicao;
 
     @OneToMany(mappedBy = "produtoServico")
@@ -38,9 +42,9 @@ public class ProdutoServico {
 
     public void setDesc(String desc) { this.desc = desc; }
 
-    public Float getValor() { return valor; }
+    public Float getValorAtual() { return valorAtual; }
 
-    public void setValor(Float valor) { this.valor = valor; }
+    public void setValorAtual(Float valorAtual) { this.valorAtual = valorAtual; }
 
     public Character getDefinicao() { return definicao; }
 

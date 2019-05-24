@@ -1,8 +1,12 @@
 package edu.ifma.lpweb.andrew.ControleDeServicos.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 @Entity
@@ -11,7 +15,14 @@ public class Cliente {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty
     private String nome;
+
+    @NotNull
+    private String rg;
+
+    @CPF @NotNull
+    private String cpf;
 
     @ElementCollection
     @CollectionTable(
@@ -19,7 +30,7 @@ public class Cliente {
             joinColumns = @JoinColumn(name = "id_cliente")
     )
     @Column(name = "email")
-    private Set<String> emails = new LinkedHashSet<>();
+    private Set<@NotEmpty @Email String> emails = new LinkedHashSet<>();
 
     @ElementCollection
     @CollectionTable(
@@ -27,12 +38,12 @@ public class Cliente {
             joinColumns = @JoinColumn(name = "id_cliente")
     )
     @Column(name = "telefone")
-    private Set<String> telefones = new LinkedHashSet<>();
+    private Set<@NotEmpty String> telefones = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     private Set<Orcamento> orcamentos = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Endereco> enderecos = new LinkedHashSet<>();
 
     public Integer getId() {
@@ -52,6 +63,14 @@ public class Cliente {
     public Set<String> getEmails() { return emails; }
 
     public void setEmails(Set<String> emails) { this.emails = emails; }
+
+    public String getCpf() { return cpf; }
+
+    public void setCpf(String cpf) { this.cpf = cpf; }
+
+    public String getRg() { return rg; }
+
+    public void setRg(String rg) { this.rg = rg; }
 
     public Set<String> getTelefones() { return telefones; }
 

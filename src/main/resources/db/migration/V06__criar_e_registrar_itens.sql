@@ -22,9 +22,9 @@ DEFAULT CHARACTER SET = utf8;
 CREATE INDEX `fk_item_orcamento` ON `Item` (`id_orcamento` ASC);
 CREATE INDEX `fk_item_servico` ON `Item` (`id_servicoproduto` ASC);
 
-INSERT INTO `ordemdeservicodb`.`item` (`valor`, `quantidade`, `id_orcamento`, `id_servicoproduto`)
+INSERT INTO `item` (`valor`, `quantidade`, `id_orcamento`, `id_servicoproduto`)
 VALUES ('100', '1', '1', '1');
-INSERT INTO `ordemdeservicodb`.`item` (`valor`, `quantidade`, `id_orcamento`, `id_servicoproduto`)
+INSERT INTO `item` (`valor`, `quantidade`, `id_orcamento`, `id_servicoproduto`)
 VALUES ('200', '1', '2', '2');
-INSERT INTO `ordemdeservicodb`.`item` (`valor`, `quantidade`, `id_orcamento`, `id_servicoproduto`)
+INSERT INTO `item` (`valor`, `quantidade`, `id_orcamento`, `id_servicoproduto`)
 VALUES ('100', '1', '3', '3');

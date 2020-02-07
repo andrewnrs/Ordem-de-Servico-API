@@ -15,10 +15,10 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE INDEX `fk_orcamento_cliente_idx` ON `Orcamento` (`id_cliente` ASC);
 
-INSERT INTO `ordemdeservicodb`.`orcamento` (`data`, `valor`, `id_cliente`)
+INSERT INTO `orcamento` (`data`, `valor`, `id_cliente`)
 VALUES ('2019-05-13', '100', '1');
-INSERT INTO `ordemdeservicodb`.`orcamento` (`data`, `valor`, `id_cliente`)
+INSERT INTO `orcamento` (`data`, `valor`, `id_cliente`)
 VALUES ('2019-03-05','200', '2');
-INSERT INTO `ordemdeservicodb`.`orcamento` (`data`, `valor`, `id_cliente`)
+INSERT INTO `orcamento` (`data`, `valor`, `id_cliente`)
 VALUES ('2019-07-08','100', '3');
 

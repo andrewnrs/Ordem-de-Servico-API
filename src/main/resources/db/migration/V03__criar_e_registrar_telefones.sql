@@ -12,11 +12,11 @@ AUTO_INCREMENT = 1;
 
 CREATE INDEX `fk_telefones_cliente_idx` ON `Telefones` (`id_cliente` ASC);
 
-INSERT INTO `ordemdeservicodb`.`Telefones` (`telefone`, `id_cliente`)
+INSERT INTO `Telefones` (`telefone`, `id_cliente`)
 VALUES ('51991501889', '1');
-INSERT INTO `ordemdeservicodb`.`Telefones` (`telefone`, `id_cliente`)
+INSERT INTO `Telefones` (`telefone`, `id_cliente`)
 VALUES ('63995602618', '2');
-INSERT INTO `ordemdeservicodb`.`Telefones` (`telefone`, `id_cliente`)
+INSERT INTO `Telefones` (`telefone`, `id_cliente`)
 VALUES ('96994696347', '3');
-INSERT INTO `ordemdeservicodb`.`Telefones` (`telefone`, `id_cliente`)
+INSERT INTO `Telefones` (`telefone`, `id_cliente`)
 VALUES ('96995268414', '3');

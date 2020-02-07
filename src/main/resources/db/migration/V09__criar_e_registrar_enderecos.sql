@@ -25,9 +25,9 @@ CREATE INDEX `fk_Endereco_Cidade1_idx` ON `Endereco` (`id_cidade` ASC);
 
 CREATE INDEX `fk_Endereco_Cliente1_idx` ON `Endereco` (`id_cliente` ASC);
 
-INSERT INTO `ordemdeservicodb`.`endereco` (`logradouro`, `bairro`, `cep`, `numero`, `id_cidade`, `id_cliente`)
+INSERT INTO `endereco` (`logradouro`, `bairro`, `cep`, `numero`, `id_cidade`, `id_cliente`)
 VALUES ('Rua Brasília', 'Niteroi', '92130700', '808', '1', '1');
-INSERT INTO `ordemdeservicodb`.`endereco` (`logradouro`, `bairro`, `cep`, `numero`, `id_cidade`, `id_cliente`)
+INSERT INTO `endereco` (`logradouro`, `bairro`, `cep`, `numero`, `id_cidade`, `id_cliente`)
 VALUES ('Rua Amazonas', 'Jardim Aureny I (Taquaralto)', '77060154', '760', '2', '2');
-INSERT INTO `ordemdeservicodb`.`endereco` (`logradouro`, `bairro`, `cep`, `numero`, `id_cidade`, `id_cliente`)
+INSERT INTO `endereco` (`logradouro`, `bairro`, `cep`, `numero`, `id_cidade`, `id_cliente`)
 VALUES ('Rua São João', 'Boné Azul', '68909513', '109', '3', '3');

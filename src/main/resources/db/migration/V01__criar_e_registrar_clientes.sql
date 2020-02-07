@@ -9,11 +9,11 @@ CREATE TABLE IF NOT EXISTS `Cliente` (
     DEFAULT CHARACTER SET = utf8;
 
 
-INSERT INTO `ordemdeservicodb`.`cliente` (`nome`, `cpf`, `rg`)
+INSERT INTO `cliente` (`nome`, `cpf`, `rg`)
 VALUES ('Elias Márcio Cavalcanti', '03927225266', '453842355');
 
-INSERT INTO `ordemdeservicodb`.`cliente` (`nome`, `cpf`, `rg`)
+INSERT INTO `cliente` (`nome`, `cpf`, `rg`)
 VALUES ('Elza Helena Baptista','15076254130', '374085018');
 
-INSERT INTO `ordemdeservicodb`.`cliente` (`nome`, `cpf`, `rg`)
+INSERT INTO `cliente` (`nome`, `cpf`, `rg`)
 VALUES ('Samuel Márcio Lima','74534806639', '435631792');

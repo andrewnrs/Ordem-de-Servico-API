@@ -9,10 +9,10 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO `ordemdeservicodb`.`Produto_Servico` (`nome`, `desc`, `valor_atual`, `definicao`)
+INSERT INTO `Produto_Servico` (`nome`, `desc`, `valor_atual`, `definicao`)
  VALUES ('manutenção de ar', 'limpar o aparelho', 100, 'm');
-INSERT INTO `ordemdeservicodb`.`Produto_Servico` (`nome`, `desc`, `valor_atual`, `definicao`)
+INSERT INTO `Produto_Servico` (`nome`, `desc`, `valor_atual`, `definicao`)
  VALUES ('instalação de ar','instalação de aparelho', 200, 'i');
-INSERT INTO `ordemdeservicodb`.`Produto_Servico` (`nome`, `desc`, `valor_atual`, `definicao`)
+INSERT INTO `Produto_Servico` (`nome`, `desc`, `valor_atual`, `definicao`)
  VALUES ('manutenção de ar','encher o gás', 100, 'g');
 

@@ -1,4 +1,4 @@
-CREATE TABLE p0d32vg8zd2lkpmq.Cliente (
+CREATE TABLE Cliente (
                          id INT(11) NOT NULL  AUTO_INCREMENT,
                          nome VARCHAR(45) NULL DEFAULT NULL,
                          cpf VARCHAR(15)  NULL,
@@ -8,11 +8,11 @@ CREATE TABLE p0d32vg8zd2lkpmq.Cliente (
     AUTO_INCREMENT = 1
     DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO p0d32vg8zd2lkpmq.Cliente (nome, cpf, rg)
+INSERT INTO Cliente (nome, cpf, rg)
 VALUES ('Elias Márcio Cavalcanti', '03927225266', '453842355');
 
-INSERT INTO p0d32vg8zd2lkpmq.Cliente (nome, cpf, rg)
+INSERT INTO Cliente (nome, cpf, rg)
 VALUES ('Elza Helena Baptista','15076254130', '374085018');
 
-INSERT INTO p0d32vg8zd2lkpmq.Cliente (nome, cpf, rg)
+INSERT INTO Cliente (nome, cpf, rg)
 VALUES ('Samuel Márcio Lima','74534806639', '435631792');
